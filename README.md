@@ -16,7 +16,7 @@ Roughly the pipeline can be divided into five steps:
 
 
 # 1. QC and data cleaning
-The QC and data cleaning is very important prior imputation since the cleaner data you put in there the better and more accurate data you will get out. PLINK and GCTA are very easy program for doing this.
+QC and data cleaning are important steps to execute prior to imputation. The cleaner the input data are the better and more accurate the post imputed data will be. PLINK and GCTA are easy solutions for achieving QC and data cleaning.
 
 ## Sample QC parameters
 
@@ -38,7 +38,7 @@ plink --bfile $FILENAME --remove all_outliers.txt --make-bed --out $FILENAME_aft
 
 - Call rate outliers (--mind), Call rate of >95% is preferred which is --mind 0.05
 
-Low call rate is an indication of a failed experiment
+Low call rate is an indication of a failed genotyping experiment
 
 ```
 plink --bfile $FILENAME --mind 0.05 --make-bed --out $FILENAME_after_call_rate
@@ -69,7 +69,7 @@ see script hapmap ancestry check folder this
 
 - No relatedness (--grm-cutoff), Typically this would be set at 0.125 to remove cousins or more related individuals
 
-Note you can also increase the grm-cut-off to e.g. 0.8 and remove duplicate samples. This would allow you keep more related individuals and use a linear mixed model.
+Note you can also increase the grm-cut-off to e.g. 0.8 and remove duplicate samples. This would allow you to keep more related individuals and use a linear mixed model.
 
 ```
 gcta --bfile $FILENAME --make-grm --out GRM_matrix --autosome --maf 0.05 
